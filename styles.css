@@ -21,9 +21,8 @@ body {
 .camera-view {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  height: 100vh; /* Occupies full height of the viewport */
   overflow: hidden;
-  border-radius: 20px 20px 0 0;
 }
 
 .camera-view video,
@@ -55,13 +54,13 @@ body {
   cursor: pointer;
   outline: none;
   color: #333; /* Dark Gray */
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 5px;
+  margin: 0 5px; /* Add a small gap between buttons */
 }
 
 #capture {

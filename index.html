@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Camera App</title>
+    <title>Mobile Camera App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="camera-container">
-        <input type="file" accept="image/*" capture="environment" id="cameraInput">
-        <img id="capturedImage" src="" alt="Captured Image">
-        <button id="downloadButton" style="display: none;">Download</button>
+        <div class="video-wrapper">
+            <video id="video" autoplay playsinline></video>
+        </div>
+        <button id="capture">Capture</button>
+        <canvas id="canvas"></canvas>
+        <a id="download" style="display: none;">Download</a>
     </div>
     <script src="script.js"></script>
 </body>

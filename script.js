@@ -20,7 +20,31 @@ function toggleCamera() {
 // Function to start the camera with the current facing mode
 function startCamera() {
   navigator.mediaDevices
-    .getUserMedia({ video: { facingMode: currentFacingMode } })
+    .enumerateDevices()
+    .then((devices) => {
+      const videoDevices = devices.filter(
+        (device) => device.kind === "videoinput"
+      );
+      const selectedDevice = videoDevices.find((device) => {
+        if (currentFacingMode === "environment") {
+          return (
+            device.label.toLowerCase().includes("back") ||
+            device.label.toLowerCase().includes("rear")
+          );
+        } else {
+          return device.label.toLowerCase().includes("front");
+        }
+      });
+      const constraints = {
+        video: {
+          deviceId: selectedDevice
+            ? { exact: selectedDevice.deviceId }
+            : undefined,
+          facingMode: currentFacingMode,
+        },
+      };
+      return navigator.mediaDevices.getUserMedia(constraints);
+    })
     .then((stream) => {
       video.srcObject = stream;
     })

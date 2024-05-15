@@ -20,19 +20,16 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 640px;
-    border-radius: 10px;
-    overflow: hidden;
+input[type="file"] {
+    margin-bottom: 20px;
 }
 
-video {
+#capturedImage {
+    display: none;
     width: 100%;
-    height: auto;
-    border: 2px solid #ccc;
+    max-width: 300px;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 button {
@@ -49,30 +46,4 @@ button {
 
 button:hover {
     background-color: #0056b3;
-}
-
-canvas {
-    display: none;
-    margin-top: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    max-width: 100%;
-}
-
-#download {
-    display: none;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-#download:hover {
-    background-color: #218838;
 }
